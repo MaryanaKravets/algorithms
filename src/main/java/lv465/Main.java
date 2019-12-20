@@ -1,4 +1,4 @@
-package com;
+package lv465;
 
 public class Main {
 }
