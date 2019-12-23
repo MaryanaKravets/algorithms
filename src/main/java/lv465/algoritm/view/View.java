@@ -10,21 +10,21 @@ import java.util.logging.Logger;
 
 public class View {
 
-    private static Logger logger=Logger.getLogger(Chapter1.class.getName());
-    private Chapter1 chapter1=new Chapter1();
-    private Scanner scanner=new Scanner(System.in);
-    private Reader reader=new ReaderImpl(scanner);
+    private static Logger logger = Logger.getLogger(Chapter1.class.getName());
+    private Chapter1 chapter1 = new Chapter1();
+    private Scanner scanner = new Scanner(System.in);
+    private Reader reader = new ReaderImpl(scanner);
 
-    public void menu(){
+    public void menu() {
         logger.info("Enter a number:");
-        int choice=0;
+        int choice = 0;
         try {
-            choice=reader.read();
-        }catch (InputMismatchException ex){
+            choice = reader.read();
+        } catch (InputMismatchException ex) {
             ex.printStackTrace();
         }
 
-        switch (choice){
+        switch (choice) {
             case 1:
                 System.out.println(chapter1.getSmallestNumberGreaterThanGivenNumber());
                 break;
