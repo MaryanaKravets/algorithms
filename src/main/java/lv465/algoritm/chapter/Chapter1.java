@@ -4,9 +4,11 @@ import lv465.algoritm.util.Reader;
 import lv465.algoritm.util.ReaderImpl;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class Chapter1 {
-    
+
+    private static Logger logger=Logger.getLogger(Chapter1.class.getName());
     private Scanner scanner=new Scanner(System.in);
     private Reader reader=new ReaderImpl(scanner);
     private List<Integer> list=new ArrayList<>();
@@ -15,7 +17,7 @@ public class Chapter1 {
     
 
     public int getSmallestNumberGreaterThanGivenNumber(){
-        System.out.println("Enter a natural number:");
+        logger.info("Enter a natural number:");
         int number=0;
         try{
             number = reader.read();
@@ -29,13 +31,13 @@ public class Chapter1 {
             i++;
         }
         double d=Math.pow(2,i+1);
-        System.out.println("The smallest number of 2^r and greater than " + number + " is ");
+        logger.info("The smallest number of 2^r is ");
         return (int) d;
     }
     
 
     public List<Integer> getThreeNumber() {
-        System.out.println("Enter a natural number");
+        logger.info("Enter a natural number");
 
         int number=0;
         boolean flag = false;
@@ -58,8 +60,8 @@ public class Chapter1 {
             }if(flag){break;}
         }
         if (!flag) {
-            System.out.println("This natural number can't be represented " +
-                "as a sum of squares of three number!");
+            logger.info("This natural number can't be represented " +
+                    "as a sum of squares of three number!");
         }
         return list;
     }
@@ -67,6 +69,7 @@ public class Chapter1 {
     
     public List<List<Integer>> getAllPairOfThreeNumber(){
         int number=0;
+        logger.info("Enter a natural number");
         try {
             number = reader.read();
         }catch (InputMismatchException ex){
@@ -78,15 +81,14 @@ public class Chapter1 {
                 for (int k = 1; k <= number - i * i - j * j; k++) {
                     if (number == i * i + j * j + k * k) {
                         listList.add(Arrays.asList(i,j,k));
-                         System.out.println("i= " + i + " j= " + j + " k= " + k);
                         flag=true;
                     }
                 }
             }
         }
         if (!flag){
-             System.out.println("This natural number can't be represented " +
-                   "as a sum of squares of three number!");
+            logger.info("This natural number can't be represented " +
+                    "as a sum of squares of three number!");
         }
         return listList;
     }
